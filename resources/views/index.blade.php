@@ -1,5 +1,3 @@
-
-
 @extends('layouts.app')
 
 @section('Breadcrumbs')
@@ -16,21 +14,22 @@
 
 @section('content')
 <div class="w-fit mx-auto h-full flex justify-center my-5  bg-neutral-100 border p-16 ">
-  <form method="POST" action="{{ route('login') }}">
-    @csrf
-      <input type="email" name="email" id="email"  required autofocus placeholder="ایمیل" class="input input-bordered w-full max-w-xs block mb-2" />
-      <input type="password" name="passworld" id="password" required placeholder="پسورد" class="input input-bordered w-full max-w-xs block mb-2" />
+  <form action="">
+      <input type="text" placeholder="ایمیل" class="input input-bordered w-full max-w-xs block mb-2" />
+      <input type="text" placeholder="پسورد" class="input input-bordered w-full max-w-xs block mb-2" />
       <div class="form-control block">
           <label class="label cursor-pointer" dir="ltr">
-            <input type="checkbox" id="remember_me" checked="checked" class="checkbox checkbox-primary" />
+            <input type="checkbox" checked="checked" class="checkbox checkbox-primary" />
             <span class="label-text">به خاطر بسپار</span> 
           </label>
       </div>
       <div class=" flex justify-around " >
-      <button type="submit" class="btn btn-success">ورود</button>
-      <a href="#" class="btn btn-info">ثبت نام</a>
+      <button class="btn btn-success">ورود</button>
+      <button class="btn btn-info">ثبت نام</button>
       </div>
   </form>
 </div>
 @endsection
 
+
+    

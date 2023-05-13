@@ -1,17 +1,52 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
+@section('Breadcrumbs')
+<div class="container flex justify-center bg-neutral-200 mx-auto mb-[10px]">
+  <div class="text-sm breadcrumbs ">
+      <ul>
+        <li><a>خانه</a></li> 
+      </ul>
     </div>
-</x-app-layout>
+</div>
+@endsection
+
+
+@section('content')
+<div class="container mx-auto flex justify-around text-center flex-wrap space-x-1 space-y-3" >
+
+  <div class="space-y-5">
+    <span >کلاس های من</span>
+    <div class="divider"></div> 
+    <x-card></x-card>
+
+    <div class="card w-96 bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">کلاس خود تو بساز</h2>
+        <p>افزودن کلاس جدید</p>
+        <div class="card-actions justify-end">
+          <button class="btn btn-success btn-block">ساختن</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="space-y-5">
+    <span>کلاس های عضو</span>
+    <div class="divider"></div> 
+    <x-card></x-card>
+    <x-card></x-card>
+    <div class="card w-96 bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title">کلاس خود تو بساز</h2>
+        <p>افزودن کلاس جدید</p>
+        <div class="card-actions justify-end">
+          <button class="btn btn-success btn-block">جستو جو کلاس</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+@endsection
+

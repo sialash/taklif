@@ -1,52 +1,37 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+@extends('layouts.app')
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+@section('Breadcrumbs')
+<div class="container flex justify-center bg-neutral-200 mx-auto">
+  <div class="text-sm breadcrumbs ">
+      <ul>
+        <li><a>خانه</a></li> 
+        <li>ثبت نام</li> 
+      </ul>
+    </div>
+</div>
+@endsection
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+@section('content')
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
+@foreach ($errors as $error)
+    {{$error}}
+@endforeach
+<div class="w-fit mx-auto h-full flex justify-center my-5  bg-neutral-100 border p-16 ">
+  <form method="POST" action="{{route('register') }}">
+    @csrf
+      <input type="text" name="name"  required autofocus placeholder="نام" class="input input-bordered w-full max-w-xs block mb-2" />
+      <input type="email" name="email"  required autofocus placeholder="ایمیل" class="input input-bordered w-full max-w-xs block mb-2" />
+      <input type="password" name="password" required placeholder="پسورد" class="input input-bordered w-full max-w-xs block mb-2" />
+      <input type="password" name="password_confirmation" required placeholder="تکرار پسورد"  class="input input-bordered w-full max-w-xs block mb-2" />
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
+      <div class=" flex justify-around " >
+        <input type="submit" class="btn btn-success" value="ثبت نام">
+      </div>
+  </form>
+</div>
+@endsection
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ml-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>

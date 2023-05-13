@@ -15,12 +15,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::get('/classRoom', function () {
+    return view('classRoom');
+})->name('classRoom');
+
+Route::get('/search', function () {
+    return view('search');
+})->name('search');
+
+Route::get('/question', function () {
+    return view('question');
+})->name('question');
+
+Route::get('/exercise', function () {
+    return view('exercise');
+})->name('exercise');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
